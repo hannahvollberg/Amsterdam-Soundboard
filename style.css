@@ -1,0 +1,201 @@
+:root {
+    --font-primary: "Quicksand", sans-serif;
+    --font-secondary: "Lora", serif;
+}
+.font-main {
+    font-family: var(--font-primary);
+}
+.font-alt {
+    font-family: var(--font-secondary);
+}
+
+*{
+    margin:0;
+    padding:0;
+    font-family: var(--font-primary);
+    box-sizing: border-box;
+}
+
+body{
+    background: #2e2929;
+    color: #E8E2DA;
+    margin:0;
+    padding:0;  
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body.default-screen::before {
+    content: "";
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+
+    background: url("assets/images/dam_basic.jpg") center/cover no-repeat;
+
+
+}
+
+.ambient-dashboard {
+    background: rgba(46, 41, 41, 0.45);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(232, 226, 218, 0.15);
+    
+    border-radius: 24px;
+    padding: 32px;
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    resize: both;
+    overflow: auto;
+    min-width: 300px;
+    min-height:400px;
+}
+
+.ambient-dashbaord h2 {
+    text-align: center;
+    color: #E8E2DA;
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.audio-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    width: 100%
+}
+
+#global-play-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(232, 226, 218, 0.2);
+
+    background: #9a6b52;
+    color: #1e1b1b;
+
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(194, 125, 88, 0.2);
+
+}
+
+#global-play-btn:hover:not(:disabled) {
+    background: #d48e69;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(194, 125, 88, 0.3);
+}
+
+#global-play-btn:disabled {
+    background: rgba(232, 226, 218, 0.1);
+    color: rgba(232, 226, 218, 0.4);
+    border: 1px solid rgba(232, 226, 218, 0.05);
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.audio-controls label {
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: rgba(232, 226, 218, 0.7);
+    margin-top: 8px;
+}
+
+.audio-controls input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 85%;
+    max-width: 280px;
+    height: 4px;
+    background: rgba(232, 226, 218, 0.2);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: background 0.3s ease;
+}
+
+.audio-controls input[type="range"]:hover {
+    background: rgba(232, 226, 218, 0.4)
+}
+
+.audio-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #866451;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.audio-controls input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #d48e69;
+}
+
+
+#global-play-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 12px;
+}
+
+#page-title {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.menu-card {
+    background-color: #7f7d7d;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 0.5px solid #b3aeae;
+    transition-duration: 0.4s;
+    border-radius: 15px;
+}
+
+.menu-card:hover {
+    background-color: #483434;
+    color: white;
+}
+
