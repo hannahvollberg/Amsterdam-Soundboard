@@ -1,4 +1,4 @@
-# Sounds of Amsterdam 🎧🌷
+# Sounds of Amsterdam 
 
 An interactive, ambient soundboard web application designed to transport listeners to iconic locations across Amsterdam through synced visual backgrounds, local ambient soundscapes, and curated background music. 
 
@@ -6,7 +6,7 @@ An interactive, ambient soundboard web application designed to transport listene
 
 ---
 
-## ✨ Features
+## Features
 
 * **Interactive Scene Switching:** Dynamically updates the page's background image, ambient audio loop, and music track based on selected locations (e.g., Prinsengracht Canals, Vondelpark, Red Light District, Coffeeshop, Cafe).
 * **Dual Audio Mixing:** Independent volume sliders for ambient environmental noise and music tracks allow for custom soundscape balancing.
@@ -16,7 +16,7 @@ An interactive, ambient soundboard web application designed to transport listene
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 * **HTML5:** Semantic document structure.
 * **CSS3:** Custom CSS variables, Flexbox layouts, glassmorphism (`backdrop-filter`), custom range sliders, and dynamic background styling.
@@ -24,7 +24,7 @@ An interactive, ambient soundboard web application designed to transport listene
 
 ---
 
-## 📁 File Structure
+## File Structure
 
 ```text
 ├── index.html        # Main HTML structure and UI dashboard
