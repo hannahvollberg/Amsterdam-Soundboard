@@ -1,5 +1,6 @@
-// Application data
-
+// =========================================================
+// Scene Data
+// =========================================================
 const scenes = [
     {
         id: "canals",
@@ -8,31 +9,27 @@ const scenes = [
         ambientSound: "assets/audios/street_market_harp.mp3",
         music: "assets/audios/sunny_canals.mp3"
     },
-
     {
-        id: "Vondelpark",
+        id: "vondelpark",
         name: "Vondelpark",
         image: "assets/images/vondelparkimg.jpg",
         ambientSound: "assets/audios/street_market_harp.mp3",
         music: "assets/audios/vondelpark_chill_garden.mp3"
     },
-
     {
-        id: "RedLightDisctrict",
+        id: "redLightDistrict",
         name: "Red Light District",
         image: "assets/images/redlight.jpg",
         ambientSound: "assets/audios/red_light_walk.wav",
         music: "assets/audios/swanky_red_light.mp3"
     },
-
     {
-        id: "Coffeeshop",
+        id: "coffeeshop",
         name: "CoffeeShop",
         image: "assets/images/coffeeshop.jpg",
         ambientSound: "assets/audios/coffeeshop_rain.mp3",
         music: "assets/audios/coffeeshop_jazz.mp3"
     },
-
     {
         id: "cafe",
         name: "cafe",
@@ -42,27 +39,37 @@ const scenes = [
     },
 ];
 
-// audio player creation
+// =========================================================
+// Audio Players
+// =========================================================
 const ambientPlayer = new Audio();
-const musicPlayer = new Audio()
+const musicPlayer = new Audio();
 
 // Loop audio
 ambientPlayer.loop = true;
 musicPlayer.loop = true;
 
+// =========================================================
+// State
+// =========================================================
 let currentScene = null;
 let isPlaying = false;
 
+// =========================================================
+// DOM References
+// =========================================================
 const menuContainer = document.getElementById("location-menu");
-const playBtn = document.getElementById("global-play-btn")
+const playBtn = document.getElementById("global-play-btn");
 const ambientVolSlider = document.getElementById("ambient-volume");
 const musicVolSlider = document.getElementById("music-volume");
 
-// scenes function
+// =========================================================
+// Initialization
+// =========================================================
 function initApp() {
     scenes.forEach(scene => {
         const button = document.createElement("button");
-        button.classList.add("menu-card")
+        button.classList.add("menu-card");
         button.innerText = scene.name;
 
         button.addEventListener("click", () => changeEnvironment(scene));
@@ -70,13 +77,16 @@ function initApp() {
     });
 }
 
-// set volume
+// =========================================================
+// Event Listeners
+// =========================================================
 ambientVolSlider.addEventListener("input", (e) => ambientPlayer.volume = e.target.value);
 musicVolSlider.addEventListener("input", (e) => musicPlayer.volume = e.target.value);
-
 playBtn.addEventListener("click", togglePlayback);
 
-// Change scene
+// =========================================================
+// Scene Management
+// =========================================================
 function changeEnvironment(scene) {
     currentScene = scene;
     document.body.classList.remove('default-screen');
@@ -96,6 +106,9 @@ function changeEnvironment(scene) {
     }
 }
 
+// =========================================================
+// Playback Controls
+// =========================================================
 function startAudioTracks() {
     Promise.all([ambientPlayer.play(), musicPlayer.play()])
         .then(() => {
@@ -103,7 +116,7 @@ function startAudioTracks() {
             playBtn.innerText = "Pause Session";
         })
         .catch(error => {
-            console.log("ERROR: Audio playback blocked by browser.", error);   
+            console.log("ERROR: Audio playback blocked by browser.", error);
         });
 }
 
@@ -120,10 +133,12 @@ function togglePlayback() {
     }
 }
 
-// draggable window
+// =========================================================
+// Draggable Dashboard
+// =========================================================
 function makeElementDraggable(dashboardEl) {
     const handle = dashboardEl.querySelector("h2");
-    let posX=0, posY=0, mouseX=0, mouseY=0;
+    let posX = 0, posY = 0, mouseX = 0, mouseY = 0;
 
     if (handle) {
         handle.onmousedown = dragMouseDown;
@@ -168,7 +183,14 @@ function makeElementDraggable(dashboardEl) {
         document.onmousemove = null;
     }
 }
-const dashboardElement = document.querySelector(".ambient-dashboard");
-makeElementDraggable(dashboardElement);
 
-initApp()
+const dashboardElement = document.querySelector(".ambient-dashboard");
+if (dashboardElement) {
+    makeElementDraggable(dashboardElement);
+}
+
+// =========================================================
+// App Start
+// =========================================================
+initApp();
+
