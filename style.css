@@ -1,7 +1,11 @@
-:root {
+/* =========================================================
+   Variables
+   ========================================================= */
+   :root {
     --font-primary: "Quicksand", sans-serif;
     --font-secondary: "Lora", serif;
 }
+
 .font-main {
     font-family: var(--font-primary);
 }
@@ -9,41 +13,64 @@
     font-family: var(--font-secondary);
 }
 
-*{
-    margin:0;
-    padding:0;
+/* =========================================================
+   Reset / Base
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
     font-family: var(--font-primary);
     box-sizing: border-box;
 }
 
-body{
+body {
     background: #2e2929;
     color: #E8E2DA;
-    margin:0;
-    padding:0;  
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
+/* =========================================================
+   Background (default screen photo)
+   ========================================================= */
 body.default-screen::before {
     content: "";
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
 
     background: url("assets/images/dam_basic.jpg") center/cover no-repeat;
 
-
+    /* Fix: without this, the fixed-position background painted on top of
+       normal in-flow content (like the page title), hiding it. Negative
+       z-index keeps it behind everything else while staying full-bleed. */
+    z-index: -1;
 }
 
+/* =========================================================
+   Page Title
+   ========================================================= */
+#page-title {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#page-title h1 {
+    padding-left: 15px;
+}
+
+/* =========================================================
+   Dashboard Container
+   ========================================================= */
 .ambient-dashboard {
     background: rgba(46, 41, 41, 0.45);
     backdrop-filter: blur(16px) saturate(140%);
     border: 1px solid rgba(232, 226, 218, 0.15);
-    
+
     border-radius: 24px;
     padding: 32px;
     width: 90%;
@@ -61,10 +88,12 @@ body.default-screen::before {
     resize: both;
     overflow: auto;
     min-width: 300px;
-    min-height:400px;
+    min-height: 400px;
 }
 
-.ambient-dashbaord h2 {
+/* Fix: was previously misspelled ".ambient-dashbaord h2" and never matched,
+   so the drag handle had no centering/cursor styling. */
+.ambient-dashboard h2 {
     text-align: center;
     color: #E8E2DA;
     margin-bottom: 24px;
@@ -73,18 +102,36 @@ body.default-screen::before {
 
     cursor: pointer;
     user-select: none;
-
 }
 
+/* =========================================================
+   Audio Controls
+   ========================================================= */
 .audio-controls {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 12px;
     margin-top: 28px;
-    width: 100%
+    width: 100%;
 }
 
+.audio-controls label {
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: rgba(232, 226, 218, 0.7);
+    margin-top: 8px;
+}
+
+/* =========================================================
+   Play / Pause Button
+   (Note: this rule previously appeared twice with conflicting
+   values, e.g. border-radius 12px vs 8px, border 1px solid vs
+   none, font-weight 600 vs bold. Merged into a single rule.)
+   ========================================================= */
 #global-play-btn {
     width: 100%;
     max-width: 320px;
@@ -101,7 +148,7 @@ body.default-screen::before {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(194, 125, 88, 0.2);
-
+    margin-bottom: 12px;
 }
 
 #global-play-btn:hover:not(:disabled) {
@@ -119,16 +166,9 @@ body.default-screen::before {
     transform: none;
 }
 
-.audio-controls label {
-    font-family: var(--font-primary);
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-align: center;
-    color: rgba(232, 226, 218, 0.7);
-    margin-top: 8px;
-}
-
+/* =========================================================
+   Volume Sliders
+   ========================================================= */
 .audio-controls input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -144,7 +184,7 @@ body.default-screen::before {
 }
 
 .audio-controls input[type="range"]:hover {
-    background: rgba(232, 226, 218, 0.4)
+    background: rgba(232, 226, 218, 0.4);
 }
 
 .audio-controls input[type="range"]::-webkit-slider-thumb {
@@ -163,39 +203,23 @@ body.default-screen::before {
     background: #d48e69;
 }
 
-
-#global-play-btn {
-    width: 100%;
-    max-width: 300px;
-    padding: 12px;
-    border-radius: 8px;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    margin-bottom: 12px;
-}
-
-#page-title {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-}
-
+/* =========================================================
+   Location Menu Cards
+   ========================================================= */
 .menu-card {
     background-color: #7f7d7d;
-    border: none;
+    border: 0.5px solid #b3aeae;
     color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     font-size: 12px;
     cursor: pointer;
-    border-radius: 12px;
-    border: 0.5px solid #b3aeae;
-    transition-duration: 0.4s;
     border-radius: 15px;
+    transition-duration: 0.4s;
 }
 
 .menu-card:hover {
     background-color: #483434;
     color: white;
 }
-
