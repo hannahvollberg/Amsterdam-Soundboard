@@ -16,6 +16,10 @@ An interactive, ambient soundboard web application designed to transport listene
 
 ---
 
+## Screenshots
+
+---
+
 ## Built With
 
 * **HTML5:** Semantic document structure.
