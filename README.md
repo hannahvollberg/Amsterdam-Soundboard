@@ -1,6 +1,7 @@
 # Sounds of Amsterdam 
 
-An interactive, ambient soundboard web application designed to transport listeners to iconic locations across Amsterdam through synced visual backgrounds, local ambient soundscapes, and curated background music. 
+Interactive soundboard web app designed to transport listeners to iconic locations across Amsterdam 
+
 
 *Created as a front-end practice project to refresh core HTML, CSS, and vanilla JavaScript concepts.*
 
