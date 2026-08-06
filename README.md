@@ -17,6 +17,25 @@ An interactive, ambient soundboard web application designed to transport listene
 ---
 
 ## Screenshots
+![Site landing screen](./product_screenshots/landingpage.png)
+**Site Landing Page:**  Users are greeted with a screen containing an image of Amsterdam as the background, along with a menu containing options that allow the user to select a location for their soundscape. A title is included in the top left, reading "Sounds of Amsterdam"
+<br>
+
+
+![Canals page](./product_screenshots/canals-shot.png)
+**The Prinsengracht Canals:** Selecting any location on the menu will update the page to view a new image and allow the user to play the audios for that specific location
+
+![Vondelpark](./product_screenshots/resize-menu.png)
+**Vondelpark:** Each location is fitted with two different audios: ambient noise and music. Volume settings for each are individually controllable, allowing the user to have full autonomy over their experience
+
+![Red Light District menu resize](./product_screenshots/mini-menu.png)
+**Red Light District:** The control menu is easily adjustable and allows users to drag and resize based on their desired experience. To move the menu, simply click/grab the top of the menu where the "Select Location" text is located, and drag. To resize the menu, click and hold on the bottom right corner of the menu, and drag in or out to shrink or enlarge the menu.
+
+---
+## Site Demo:
+https://github.com/user-attachments/assets/62c0ae0b-4ff2-410e-9ff0-86affa7046a6
+
+
 
 ---
 
